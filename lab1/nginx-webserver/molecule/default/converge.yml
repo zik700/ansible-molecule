@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include nginx-webserver"
+      include_role:
+        name: "nginx-webserver"

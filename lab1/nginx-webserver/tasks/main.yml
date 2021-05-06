@@ -1,0 +1,38 @@
+---
+# tasks file for nginx-webserver
+- name: Molecule Hello World!
+  debug:
+    msg: Hello, World!
+
+- name: Install nginx server on Debian system family
+  block:
+  - name: ensure nginx is installed
+    apt:
+      name:
+        - nginx
+      state: present
+      update_cache: yes
+  when: ansible_os_family == 'Debian'
+
+- name: Install nginx server on RedHat system family
+  block:
+  - name: ensure epel release repository is installed
+    yum:
+      name:
+        - epel-release
+      state: present
+      update_cache: yes
+      
+  - name: ensure nginx is installed
+    yum:
+      name:
+        - nginx
+      state: present
+      update_cache: yes
+  when: ansible_os_family == 'RedHat'
+
+
+- name: Start nginx service
+  service:
+    name: nginx
+    state: started
