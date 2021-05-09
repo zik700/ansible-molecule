@@ -8,16 +8,3 @@
   - name: Example assertion
     assert:
       that: true
-
-  - name: Register nginx service state
-    shell: | 
-      service nginx1 status > /dev/null
-    register: nginx_state
-
-  - name: Molecule Hello World!
-    debug:
-      msg: "{{ nginx_state }}"
-
-  # - name: Check nginx service state
-  #   assert:
-  #     that: nginx-state
