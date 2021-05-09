@@ -20,14 +20,6 @@ molecule init role nginx.webserver -d docker
 
 This gave me a whole ansible directory structure
 
-## First test
-
-```bash
-molecule test
-```
-
-But nothing worked :(
-
 ## Verify the documentation
 It's time to verify documentation, after that i saw my fault
 
@@ -48,3 +40,12 @@ To execute test scenario
 ```bash
 molecule test
 ```
+
+## Testing and linters
+
+* yamllint
+* ansible-playbook --syntax-check
+* ansible-lint
+* molecule test
+* ansible-playbook --check - use before production
+* prallel infrastrucutre

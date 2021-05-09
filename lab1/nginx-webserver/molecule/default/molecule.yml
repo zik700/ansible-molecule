@@ -11,18 +11,21 @@ platforms:
 provisioner:
   name: ansible
 verifier:
-  name: ansible
+  name: testinfra
 scenario:
   name: default
   test_sequence:
     - lint
     - destroy
-    - dependency
+    # It's not necessarily now
+    # - dependency
     - syntax
     - create
     - prepare
     - converge
-    - idempotence
-    - side_effect
+    # It's not necessarily now
+    # - idempotence
+    # It's not necessarily now
+    # - side_effect 
     - verify
     - destroy
